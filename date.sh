@@ -4,7 +4,7 @@ clear
 text="This is an animated text"
 
 # Animation speed (adjust as desired)
-animation_speed=0.1
+animation_speed=2
 
 # Get terminal dimensions
 width=$(tput cols)
@@ -29,7 +29,7 @@ while true; do
     fi
 
     # Sleep for the animation speed
-    sleep $animation_speed
+    sleep $animation_slowmo
 
     # Clear the entire screen if the text reaches the end of the line
     if [ $position -eq ${#text} ]; then
