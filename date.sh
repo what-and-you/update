@@ -1,10 +1,10 @@
 clear
 
 # Text to animate
-text="This is an animated text"
+text="TOOLSRENV2 DALAM PERBAIKAN/UPDATE TOOLSRENV2 DALAM PERBAIKAN/UPDATE  TOOLSRENV2 DALAM PERBAIKAN/UPDATE"
 
 # Animation speed (adjust as desired)
-animation_speed=5
+animation_speed=3.5
 
 # Get terminal dimensions
 width=$(tput cols)
