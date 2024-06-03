@@ -5,8 +5,9 @@ read -p"tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya: "
 if [ $ren9999 == help ]
 then
 clear
-sleep 1
+sleep 3
 xdg-open "https://wa.me/+6289519450908?text=bang ToolsRenv2 Kapan selesai update nya?"
+sleep 3
 fi
 if [ $ren9999 ==   ]
 then
