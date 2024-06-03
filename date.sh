@@ -1,37 +1,33 @@
 clear
-#!/bin/bash
+!#/bin/bash
 
-# Text to be displayed
-text="Hello, World!"
+# Text to scroll
+text="Your Text Here"
 
-# Variables for text position and direction
-position=0
-direction=1
+# Empty line for spacing
+empty_line=" "
 
+# Get terminal width
+tput cols
+
+# Function to scroll text
+scroll_text() {
+  local full_text="$empty_line$text$empty_line"
+  local length=${#full_text}
+  local i
+
+  for ((i=0; i<$length; i++)); do
+    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"  # Move cursor back
+    sleep 0.1  # Adjust speed as needed
+  done
+
+  for ((i=$length; i>=0; i--)); do
+    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"  # Move cursor back
+    sleep 0.1  # Adjust speed as needed
+  done
+}
+
+# Infinite loop for continuous scrolling
 while true; do
-    # Clear the line
-    tput cuu1 tput el
-
-    # Move the cursor to the desired position
-    tput cup $position 0
-
-    # Display the text
-    echo "$text"
-
-    # Update the position based on the direction
-    if [ $direction -eq 1 ]; then
-        ((position++))
-    else
-        ((position--))
-    fi
-
-    # Check if the text is off the screen
-    if [ $position -lt 0 ] || [ $position -ge ${#text} ]; then
-        # Reverse the direction
-        ((direction *= -1))
-    fi
-
-    # Sleep for a short interval to control the speed
-    sleep 0.1
-
+  scroll_text
 done
