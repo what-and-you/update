@@ -1,7 +1,7 @@
 clear
 
 # Text to scroll
-text="Hello, World! This is an animated text scrolling script."
+text="MAAF TOOLSRENV2 SEDANG DALAM UPDATE"
 
 # Convert text to an array
 text_array=(${text// /})
@@ -34,3 +34,5 @@ while true; do
     sleep 0.1
 
 done
+echo -p" "
+exit
