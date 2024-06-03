@@ -1,30 +1,36 @@
 clear
-text="Your Text Here"
 
-# Empty line for spacing
-empty_line=" "
+# Text to scroll
+text="Hello, World! This is an animated text scrolling script."
 
-# Get terminal width
-tput cols
+# Convert text to an array
+text_array=(${text// /})
 
-# Function to scroll text
-scroll_text() {
-  local full_text="$empty_line$text$empty_line"
-  local length=${#full_text}
-  local i
+# Number of elements in the array
+array_length=${#text_array[@]}
 
-  for ((i=0; i<$length; i++)); do
-    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"
-    sleep 0.1
-  done
+# Starting position
+position=0
 
-  for ((i=$length; i>=0; i--)); do
-    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"  # Move cursor back
-    sleep 0.1  # Adjust speed as needed
-  done
-}
-
-# Infinite loop for continuous scrolling
 while true; do
-  scroll_text
+    # Clear the line
+    tput cuu1
+    tput el
+
+    # Print the text from the current position to the end of the array
+    for ((i = $position; i < $array_length; i++)); do
+        echo "${text_array[$i]}"
+    done
+
+    # Print the text from the beginning of the array to the current position
+    for ((i = 0; i < $position; i++)); do
+        echo "${text_array[$i]}"
+    done
+
+    # Increment the position
+    position=$((($position + 1) % $array_length))
+
+    # Sleep for a short time to create the scrolling effect
+    sleep 0.1
+
 done
