@@ -1,7 +1,7 @@
 clear
 echo "TOOLSRENV2 SEDANG DALAM PERBAIKAN/UPDATE"
 sleep 5
-read -p"tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya"
+read -p"tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya: "
 if [ $ren9999 == help ]
 then
 clear
