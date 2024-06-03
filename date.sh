@@ -3,7 +3,7 @@ echo "TOOLSRENV2 SEDANG DALAM PERBAIKAN/UPDATE"
 sleep 3
 echo "tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya"
 echo
-read -p" [ enter ] atau [ help ] :"ren9999
+read -p" [ enter ] atau [ help ] : "ren9999
 if [ $ren9999 == help ]
 then
 clear
@@ -14,5 +14,7 @@ if [ $ren9999 ==   ]
 then
 clear
 sleep 3
+echo "thanks bro👍"
+echo "exit"
 exit
 fi
