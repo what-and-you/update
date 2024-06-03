@@ -1,38 +1,38 @@
 clear
 
-# Text to scroll
-text="MAAF TOOLSRENV2 SEDANG DALAM UPDATE"
+# Text to animate
+text="This is an animated text"
 
-# Convert text to an array
-text_array=(${text// /})
+# Animation speed (adjust as desired)
+animation_speed=0.1
 
-# Number of elements in the array
-array_length=${#text_array[@]}
+# Get terminal dimensions
+width=$(tput cols)
+height=$(tput lines)
 
-# Starting position
+# Calculate starting position
 position=0
 
 while true; do
-    # Clear the line
-    tput cuu1
-    tput el
+    # Clear the line where the text will be displayed
+    tput cup 0 $(($height - 1))
 
-    # Print the text from the current position to the end of the array
-    for ((i = $position; i < $array_length; i++)); do
-        echo "${text_array[$i]}"
-    done
-
-    # Print the text from the beginning of the array to the current position
-    for ((i = 0; i < $position; i++)); do
-        echo "${text_array[$i]}"
-    done
+    # Print the text with the current position
+    echo -n "${text:position:width}"
 
     # Increment the position
-    position=$((($position + 1) % $array_length))
+    position=$((position + 1))
 
-    # Sleep for a short time to create the scrolling effect
-    sleep 0.1
+    # Wrap around if the end of the text is reached
+    if [ $position -gt ${#text} ]; then
+        position=0
+    fi
 
+    # Sleep for the animation speed
+    sleep $animation_speed
+
+    # Clear the entire screen if the text reaches the end of the line
+    if [ $position -eq ${#text} ]; then
+        tput clear
+    fi
 done
-echo -p" "
-exit
