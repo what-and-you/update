@@ -1,7 +1,4 @@
 clear
-!#/bin/bash
-
-# Text to scroll
 text="Your Text Here"
 
 # Empty line for spacing
@@ -17,8 +14,8 @@ scroll_text() {
   local i
 
   for ((i=0; i<$length; i++)); do
-    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"  # Move cursor back
-    sleep 0.1  # Adjust speed as needed
+    echo -ne "${full_text:i:cols}${\x1B[${length - i}G}"
+    sleep 0.1
   done
 
   for ((i=$length; i>=0; i--)); do
