@@ -1,3 +1,4 @@
+sleep 3
 clear
 echo "TOOLSRENV2 SEDANG DALAM PERBAIKAN/UPDATE"
 sleep 3
