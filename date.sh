@@ -1,9 +1,10 @@
 clear
 echo "TOOLSRENV2 SEDANG DALAM PERBAIKAN/UPDATE"
 sleep 3
-echo "tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya"
+echo "[ enter ] atau [ help ]"
+echo -e"tekan [ enter ] untuk keluar dan ketik [ help ] untuk bertanya"
 echo
-read -p" [ enter ] atau [ help ] : "ren9999
+read -p"pilih menu:" ren9999
 if [ $ren9999 == help ]
 then
 clear
