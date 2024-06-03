@@ -1,3 +1,4 @@
+clear
 #!/bin/bash
 
 # Text to be displayed
